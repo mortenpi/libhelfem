@@ -1,0 +1,6 @@
+#ifndef __HELFEM__
+#define __HELFEM__
+
+void hello_world();
+
+#endif
