@@ -19,7 +19,7 @@ set(helfem-src
 
 add_library(helfem STATIC ${helfem-src})
 target_include_directories(helfem PUBLIC include/ ${ARMADILLO_INCLUDE_DIRS})
-target_link_libraries(helfem ${ARMADILLO_LIBRARIES})
+target_link_libraries(helfem PUBLIC ${ARMADILLO_LIBRARIES})
 
 # add_library(helfem SHARED ${helfem-src})
 # target_include_directories(helfem PUBLIC include/)
@@ -37,6 +37,11 @@ install(DIRECTORY include/ DESTINATION include)
 
 # Tests
 enable_testing()
+
 add_executable(test.runtests test/runtests.cc)
 target_link_libraries(test.runtests helfem)
 add_test(NAME runtests COMMAND test.runtests)
+
+add_executable(test.armadillo test/armadillo.cc)
+target_link_libraries(test.armadillo helfem)
+add_test(NAME armadillo COMMAND test.armadillo)
