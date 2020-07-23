@@ -1,0 +1,35 @@
+cmake_minimum_required(VERSION 3.10)
+project(helfem CXX)
+
+find_package(Armadillo REQUIRED)
+#find_package(GSL REQUIRED)
+
+set(helfem-src
+    src/helfem.cc
+)
+
+message("Found Armadillo ${ARMADILLO_VERSION_NAME} (v${ARMADILLO_VERSION_MAJOR}.${ARMADILLO_VERSION_MINOR}.${ARMADILLO_VERSION_PATCH})")
+message("ARMADILLO_VERSION_STRING: ${ARMADILLO_VERSION_STRING}")
+message("ARMADILLO_INCLUDE_DIRS:   ${ARMADILLO_INCLUDE_DIRS}")
+message("ARMADILLO_LIBRARIES:      ${ARMADILLO_LIBRARIES}")
+
+if(NOT (${ARMADILLO_VERSION_MAJOR} EQUAL "9"))
+    message(FATAL_ERROR "Invalid Armadillo version, expected 9.")
+endif(NOT (${ARMADILLO_VERSION_MAJOR} EQUAL "9"))
+
+add_library(helfem-static STATIC ${helfem-src})
+target_include_directories(helfem-static PUBLIC include/ ${ARMADILLO_INCLUDE_DIRS})
+target_link_libraries(helfem-static ${ARMADILLO_LIBRARIES})
+
+add_library(helfem SHARED ${helfem-src})
+target_include_directories(helfem PUBLIC include/)
+target_link_libraries(helfem ${ARMADILLO_LIBRARIES})
+
+install(
+    TARGETS helfem helfem-static
+    LIBRARY
+      DESTINATION lib
+    ARCHIVE
+      DESTINATION lib
+)
+install(DIRECTORY include/ DESTINATION include)
