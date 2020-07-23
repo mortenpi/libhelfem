@@ -17,17 +17,17 @@ set(helfem-src
     src/helfem.cc
 )
 
-add_library(helfem-static STATIC ${helfem-src})
-target_include_directories(helfem-static PUBLIC include/ ${ARMADILLO_INCLUDE_DIRS})
-target_link_libraries(helfem-static ${ARMADILLO_LIBRARIES})
-
-add_library(helfem SHARED ${helfem-src})
-target_include_directories(helfem PUBLIC include/)
+add_library(helfem STATIC ${helfem-src})
+target_include_directories(helfem PUBLIC include/ ${ARMADILLO_INCLUDE_DIRS})
 target_link_libraries(helfem ${ARMADILLO_LIBRARIES})
+
+# add_library(helfem SHARED ${helfem-src})
+# target_include_directories(helfem PUBLIC include/)
+# target_link_libraries(helfem ${ARMADILLO_LIBRARIES})
 
 # Installation locations for files.
 install(
-    TARGETS helfem helfem-static
+    TARGETS helfem
     LIBRARY
       DESTINATION lib
     ARCHIVE
