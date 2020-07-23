@@ -1,6 +1,6 @@
 #include <helfem>
 
 int main(int argc, char * argv[]) {
-    hello_world();
+    helfem::hw();
     return 0;
 }

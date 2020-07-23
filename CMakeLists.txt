@@ -34,3 +34,9 @@ install(
       DESTINATION lib
 )
 install(DIRECTORY include/ DESTINATION include)
+
+# Tests
+enable_testing()
+add_executable(test.runtests test/runtests.cc)
+target_link_libraries(test.runtests helfem)
+add_test(NAME runtests COMMAND test.runtests)

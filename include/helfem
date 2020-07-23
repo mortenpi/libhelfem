@@ -1,6 +1,8 @@
 #ifndef __HELFEM__
 #define __HELFEM__
 
-void hello_world();
+namespace helfem {
+    void hw();
+}
 
 #endif
