@@ -15,6 +15,7 @@ endif()
 # files.
 set(helfem-src
     src/helfem.cc
+    src/utils.cc
 )
 
 add_library(helfem STATIC ${helfem-src})
