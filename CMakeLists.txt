@@ -9,7 +9,7 @@ message("ARMADILLO_INCLUDE_DIRS:   ${ARMADILLO_INCLUDE_DIRS}")
 message("ARMADILLO_LIBRARIES:      ${ARMADILLO_LIBRARIES}")
 if(NOT (${ARMADILLO_VERSION_MAJOR} EQUAL "9"))
     message(FATAL_ERROR "Invalid Armadillo version, expected 9.")
-endif(NOT (${ARMADILLO_VERSION_MAJOR} EQUAL "9"))
+endif()
 
 # Library targets. We build both the static and shared libraries, and they share the source
 # files.
