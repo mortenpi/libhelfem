@@ -18,4 +18,14 @@
 
 using namespace std;
 
+bool helfem::verbose = true;
+
+void helfem::set_verbosity(bool new_verbosity) {
+  if (verbose && new_verbosity)
+    printf("HelFEM library already in verbose mode.");
+  else if (!verbose && new_verbosity)
+    printf("HelFEM library set to verbose mode.");
+  verbose = new_verbosity;
+}
+
 void helfem::hw() { cout << "HelFEM World!" << endl; }

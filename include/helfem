@@ -18,6 +18,9 @@
 #include <armadillo>
 
 namespace helfem {
+extern bool verbose;
+void set_verbosity(bool);
+
 // Generic functionality
 void hw();
 
@@ -25,6 +28,7 @@ void hw();
 namespace utils {
 arma::vec get_grid(double rmax, int num_el, int igrid, double zexp);
 }
+
 } // namespace helfem
 
 #endif
