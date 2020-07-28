@@ -18,8 +18,20 @@
 #include <armadillo>
 
 namespace helfem {
+/**
+ * Global boolean indicating whether the library is in verbose or non-verbose mode. * By
+ * default, the library is in the non-verbose mode.
+ *
+ * This variable is not part of the public API. The verbosity should be enabled or disabled
+ * using helfem::set_verbosity.
+ */
 extern bool verbose;
-void set_verbosity(bool);
+/**
+ * Set the global verbosity flag for the libhelfem library.
+ *
+ * @param verbose whether to enable or disable verbosity.
+ */
+void set_verbosity(bool verbosity);
 
 // Generic functionality
 void hw();

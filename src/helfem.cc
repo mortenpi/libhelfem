@@ -18,7 +18,7 @@
 
 using namespace std;
 
-bool helfem::verbose = true;
+bool helfem::verbose = false;
 
 void helfem::set_verbosity(bool new_verbosity) {
   if (verbose && new_verbosity)
