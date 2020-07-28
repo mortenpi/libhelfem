@@ -7,9 +7,10 @@
  *
  * Copyright (c) 2018 Susi Lehtola
  *
- * This program is free software; you can redistribute it and/or * modify it under the terms
- * of the GNU General Public License * as published by the Free Software Foundation; either
- * version 2 * of the License, or (at your option) any later version.
+ * This program is free software; you can redistribute it and/or * modify it
+ * under the terms of the GNU General Public License * as published by the Free
+ * Software Foundation; either version 2 * of the License, or (at your option)
+ * any later version.
  */
 #ifndef __HELFEM__
 #define __HELFEM__
@@ -17,11 +18,13 @@
 #include <armadillo>
 
 namespace helfem {
-  void hw();
+// Generic functionality
+void hw();
 
-  namespace utils {
-    arma::vec get_grid(double rmax, int num_el, int igrid, double zexp);
-  }
+// Utilities
+namespace utils {
+arma::vec get_grid(double rmax, int num_el, int igrid, double zexp);
 }
+} // namespace helfem
 
 #endif
