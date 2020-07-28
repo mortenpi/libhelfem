@@ -15,7 +15,10 @@
 #ifndef __HELFEM__
 #define __HELFEM__
 
+#include <string>
 #include <armadillo>
+
+#define __HELFEM_VERSION__ "${PROJECT_VERSION_FULL}"
 
 namespace helfem {
 /**
@@ -33,8 +36,7 @@ extern bool verbose;
  */
 void set_verbosity(bool verbosity);
 
-// Generic functionality
-void hw();
+std::string version();
 
 // Utilities
 namespace utils {

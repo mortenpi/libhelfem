@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
-project(helfem CXX)
+project(helfem
+    LANGUAGES CXX
+    VERSION 0.0.1
+)
+set(PROJECT_VERSION_FULL "${PROJECT_VERSION}-alpha")
 
 # Try to find the Armadillo C++ library
 find_package(Armadillo REQUIRED)
@@ -11,6 +15,9 @@ if(NOT (${ARMADILLO_VERSION_MAJOR} EQUAL "9"))
     message(FATAL_ERROR "Invalid Armadillo version, expected 9.")
 endif()
 
+# Version information
+configure_file("include/helfem.source.hh" "include/helfem")
+
 # Library targets. We build both the static and shared libraries, and they share the source
 # files.
 set(helfem-src
@@ -19,7 +26,7 @@ set(helfem-src
 )
 
 add_library(helfem STATIC ${helfem-src})
-target_include_directories(helfem PUBLIC include/ ${ARMADILLO_INCLUDE_DIRS})
+target_include_directories(helfem PUBLIC "${CMAKE_BINARY_DIR}/include/" "${ARMADILLO_INCLUDE_DIRS}")
 target_link_libraries(helfem PUBLIC ${ARMADILLO_LIBRARIES})
 
 # add_library(helfem SHARED ${helfem-src})

@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-  helfem::hw();
+  cout << "VERSION: " << helfem::version() << endl;
 
   // Call helfem::utils::get_grid
   auto v = helfem::utils::get_grid(5.0, 10, 1, 0.0);
