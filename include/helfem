@@ -1,8 +1,14 @@
 #ifndef __HELFEM__
 #define __HELFEM__
 
+#include <armadillo>
+
 namespace helfem {
-    void hw();
+  void hw();
+
+  namespace utils {
+    arma::vec get_grid(double rmax, int num_el, int igrid, double zexp);
+  }
 }
 
 #endif

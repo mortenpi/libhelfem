@@ -1,5 +1,4 @@
-#include <helfem_utils>
-#include <armadillo>
+#include <helfem>
 
 arma::vec helfem::utils::get_grid(double rmax, int num_el, int igrid, double zexp) {
   // Boundary values
