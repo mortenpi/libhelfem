@@ -28,6 +28,4 @@ void helfem::set_verbosity(bool new_verbosity) {
   verbose = new_verbosity;
 }
 
-std::string helfem::version() {
-    return __HELFEM_VERSION__;
-}
+std::string helfem::version() { return __HELFEM_VERSION__; }
